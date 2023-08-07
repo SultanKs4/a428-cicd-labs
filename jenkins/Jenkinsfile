@@ -1,13 +1,7 @@
 node {
     withDockerContainer(args: '-p 3000:3000', image: 'node:lts-buster-slim') {
         stage('Build') {
-            try {
-                sh 'npm install'
-            }
-            catch (exc) {
-                echo 'Something failed when install!'
-                throw
-            }
+            sh 'npm install'
         }
         stage('Test') {
             sh './jenkins/scripts/test.sh'
