@@ -1,4 +1,5 @@
 node {
+    checkout scmGit(branches: [[name: '*/react-app']], extensions: [], userRemoteConfigs: [[url: '/home/projects/dicoding-submission-jenkins/a428-cicd-labs']])
     withDockerContainer(args: '-p 3000:3000', image: 'node:lts-buster-slim') {
         stage('Build') {
             sh 'npm install'
